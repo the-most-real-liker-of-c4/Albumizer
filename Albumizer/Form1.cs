@@ -49,6 +49,7 @@ namespace Albumizer
         {
             if (SongList.Items.Count == 0)
             {
+                //TODO: Load files in correct order using song index
                 //Load Folder
                 albumFolderLoader.UseDescriptionForTitle = true;
                 albumFolderLoader.Description = "Select Album Root Folder";

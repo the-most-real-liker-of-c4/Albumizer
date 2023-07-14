@@ -7,7 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>Resources\cd_music.ico</ApplicationIcon>
-    <IsPublishable>False</IsPublishable>
+    <IsPublishable>True</IsPublishable>
     <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
     <SignAssembly>False</SignAssembly>
     <AssemblyOriginatorKeyFile>Resources\FISH.jpg</AssemblyOriginatorKeyFile>
