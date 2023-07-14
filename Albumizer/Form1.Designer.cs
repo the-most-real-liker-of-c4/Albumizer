@@ -1,6 +1,6 @@
 ﻿namespace Albumizer
 {
-    partial class Form1
+    partial class MainWin
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,15 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWin));
             label1 = new Label();
             LoadedAlbum_Text = new Label();
             LoadAlbum = new Button();
             albumFolderLoader = new Ookii.Dialogs.WinForms.VistaFolderBrowserDialog();
             MainAlbumControls = new Panel();
-            Mpeg3controls = new Panel();
-            AlbumArt = new PictureBox();
+            PlaySong = new Button();
             SongList = new ListBox();
+            TagControls = new Panel();
+            listBox1 = new ListBox();
+            AlbumArt = new PictureBox();
+            LengthFinder = new Label();
             MainAlbumControls.SuspendLayout();
+            TagControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)AlbumArt).BeginInit();
             SuspendLayout();
             // 
@@ -71,8 +76,9 @@
             // 
             // MainAlbumControls
             // 
+            MainAlbumControls.Controls.Add(PlaySong);
             MainAlbumControls.Controls.Add(SongList);
-            MainAlbumControls.Controls.Add(Mpeg3controls);
+            MainAlbumControls.Controls.Add(TagControls);
             MainAlbumControls.Controls.Add(AlbumArt);
             MainAlbumControls.Location = new Point(0, 40);
             MainAlbumControls.Name = "MainAlbumControls";
@@ -80,12 +86,48 @@
             MainAlbumControls.TabIndex = 3;
             MainAlbumControls.Visible = false;
             // 
-            // Mpeg3controls
+            // PlaySong
             // 
-            Mpeg3controls.Location = new Point(575, 12);
-            Mpeg3controls.Name = "Mpeg3controls";
-            Mpeg3controls.Size = new Size(213, 304);
-            Mpeg3controls.TabIndex = 2;
+            PlaySong.Location = new Point(365, 322);
+            PlaySong.Name = "PlaySong";
+            PlaySong.Size = new Size(130, 23);
+            PlaySong.TabIndex = 5;
+            PlaySong.Text = "Play that song!!1!";
+            PlaySong.UseVisualStyleBackColor = true;
+            PlaySong.Visible = false;
+            PlaySong.Click += PlaySong_Click;
+            // 
+            // SongList
+            // 
+            SongList.FormattingEnabled = true;
+            SongList.HorizontalExtent = 98;
+            SongList.HorizontalScrollbar = true;
+            SongList.ItemHeight = 15;
+            SongList.Location = new Point(226, 12);
+            SongList.MaximumSize = new Size(400, 304);
+            SongList.MinimumSize = new Size(343, 304);
+            SongList.Name = "SongList";
+            SongList.Size = new Size(343, 304);
+            SongList.TabIndex = 3;
+            SongList.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            // 
+            // TagControls
+            // 
+            TagControls.Controls.Add(listBox1);
+            TagControls.Location = new Point(575, 12);
+            TagControls.Name = "TagControls";
+            TagControls.Size = new Size(213, 304);
+            TagControls.TabIndex = 2;
+            TagControls.Visible = false;
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(0, 3);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(210, 289);
+            listBox1.TabIndex = 0;
             // 
             // AlbumArt
             // 
@@ -97,28 +139,29 @@
             AlbumArt.TabIndex = 0;
             AlbumArt.TabStop = false;
             // 
-            // SongList
+            // LengthFinder
             // 
-            SongList.FormattingEnabled = true;
-            SongList.ItemHeight = 15;
-            SongList.Location = new Point(226, 12);
-            SongList.Name = "SongList";
-            SongList.Size = new Size(343, 304);
-            SongList.TabIndex = 3;
-            SongList.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            LengthFinder.AutoSize = true;
+            LengthFinder.Location = new Point(272, 22);
+            LengthFinder.Name = "LengthFinder";
+            LengthFinder.Size = new Size(0, 15);
+            LengthFinder.TabIndex = 6;
             // 
-            // Form1
+            // MainWin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(LengthFinder);
             Controls.Add(MainAlbumControls);
             Controls.Add(LoadAlbum);
             Controls.Add(LoadedAlbum_Text);
             Controls.Add(label1);
-            Name = "Form1";
-            Text = "Form1";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "MainWin";
+            Text = "The Albumizer";
             MainAlbumControls.ResumeLayout(false);
+            TagControls.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)AlbumArt).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -132,7 +175,10 @@
         private Ookii.Dialogs.WinForms.VistaFolderBrowserDialog albumFolderLoader;
         private Panel MainAlbumControls;
         private PictureBox AlbumArt;
-        private Panel Mpeg3controls;
+        private Panel TagControls;
         private ListBox SongList;
+        private Button PlaySong;
+        private ListBox listBox1;
+        private Label LengthFinder;
     }
 }
